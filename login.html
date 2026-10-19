@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | SITTA Universitas Terbuka</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+  <main class="login-card">
+    <header class="brand">
+      <div class="logo" aria-hidden="true">UT</div>
+      <h1>SITTA</h1>
+      <p>Sistem Informasi Tiras dan Transaksi Bahan Ajar</p>
+    </header>
+
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="nama@ut.ac.id" autocomplete="username">
+        <span class="error-text"></span>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Masukkan password" autocomplete="current-password">
+        <span class="error-text"></span>
+      </div>
+      <button type="submit" class="btn btn-block">Login</button>
+    </form>
+
+    <div class="login-links">
+      <button type="button" class="link-btn" id="btnLupa">Lupa Password</button>
+      <button type="button" class="link-btn" id="btnDaftar">Daftar</button>
+    </div>
+
+    <p class="demo-hint">Akun demo: <strong>rina@ut.ac.id</strong> / <strong>rina123</strong></p>
+  </main>
+
+  <!-- Modal Lupa Password -->
+  <div class="modal" id="modalLupa" role="dialog" aria-modal="true" aria-labelledby="judulLupa">
+    <div class="modal-content">
+      <button type="button" class="modal-close" aria-label="Tutup">&times;</button>
+      <h2 id="judulLupa">Lupa Password</h2>
+      <p class="page-sub">Masukkan email terdaftar. Kami akan mengirim tautan reset password.</p>
+      <form id="formLupa" novalidate>
+        <div class="form-group">
+          <label for="lupaEmail">Email</label>
+          <input type="email" id="lupaEmail" placeholder="nama@ut.ac.id">
+          <span class="error-text"></span>
+        </div>
+        <button type="submit" class="btn btn-block">Kirim Tautan Reset</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Daftar -->
+  <div class="modal" id="modalDaftar" role="dialog" aria-modal="true" aria-labelledby="judulDaftar">
+    <div class="modal-content">
+      <button type="button" class="modal-close" aria-label="Tutup">&times;</button>
+      <h2 id="judulDaftar">Daftar Akun Baru</h2>
+      <form id="formDaftar" novalidate>
+        <div class="form-group">
+          <label for="daftarNama">Nama Lengkap</label>
+          <input type="text" id="daftarNama" placeholder="Nama lengkap">
+          <span class="error-text"></span>
+        </div>
+        <div class="form-group">
+          <label for="daftarEmail">Email</label>
+          <input type="email" id="daftarEmail" placeholder="nama@ut.ac.id">
+          <span class="error-text"></span>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="daftarRole">Role</label>
+            <select id="daftarRole">
+              <option value="UPBJJ-UT">UPBJJ-UT</option>
+              <option value="Puslaba">Puslaba</option>
+              <option value="Fakultas">Fakultas</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="daftarLokasi">Lokasi</label>
+            <input type="text" id="daftarLokasi" placeholder="mis. UPBJJ Bandung">
+            <span class="error-text"></span>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="daftarPassword">Password</label>
+            <input type="password" id="daftarPassword" placeholder="Min. 6 karakter" autocomplete="new-password">
+            <span class="error-text"></span>
+          </div>
+          <div class="form-group">
+            <label for="daftarKonfirmasi">Ulangi Password</label>
+            <input type="password" id="daftarKonfirmasi" autocomplete="new-password">
+            <span class="error-text"></span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-block">Daftar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

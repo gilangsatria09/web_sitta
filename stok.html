@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informasi Stok Bahan Ajar | SITTA Universitas Terbuka</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand-mini" href="dashboard.html">SITTA UT</a>
+    <nav aria-label="Menu utama">
+      <ul>
+        <li><a href="dashboard.html">Beranda</a></li>
+        <li><a href="stok.html" class="active">Informasi Bahan Ajar</a></li>
+        <li><a href="tracking.html">Tracking Pengiriman</a></li>
+        <li class="dropdown">
+          <button type="button" class="drop-btn" aria-haspopup="true">Laporan &#9662;</button>
+          <ul class="dropdown-menu">
+            <li><a href="dashboard.html?laporan=monitoring">Monitoring Progress DO Bahan Ajar</a></li>
+            <li><a href="dashboard.html?laporan=rekap">Rekap Bahan Ajar</a></li>
+          </ul>
+        </li>
+        <li><a href="dashboard.html?laporan=histori">Histori Transaksi</a></li>
+      </ul>
+    </nav>
+    <div class="user-box">
+      <span id="userName"></span>
+      <button type="button" class="btn btn-accent" id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="page-title">Informasi Stok Bahan Ajar</h1>
+    <p class="page-sub">Data stok bahan ajar per lokasi. Stok di bawah 200 ditandai sebagai menipis.</p>
+
+    <section class="card">
+      <div class="toolbar">
+        <input type="search" id="cari" placeholder="Cari kode atau nama barang..." aria-label="Cari bahan ajar">
+        <button type="button" class="btn" id="btnTambah">+ Tambah Stok Baru</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Cover</th>
+              <th>Kode Lokasi</th>
+              <th>Kode Barang</th>
+              <th>Nama Barang</th>
+              <th>Jenis</th>
+              <th>Edisi</th>
+              <th>Stok</th>
+            </tr>
+          </thead>
+          <tbody id="tabelStok"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="kosong" hidden>Tidak ada data yang cocok.</p>
+      <p class="page-sub" id="ringkasan"></p>
+    </section>
+  </main>
+
+  <!-- Modal tambah stok -->
+  <div class="modal" id="modalTambah" role="dialog" aria-modal="true" aria-labelledby="judulTambah">
+    <div class="modal-content">
+      <button type="button" class="modal-close" aria-label="Tutup">&times;</button>
+      <h2 id="judulTambah">Tambah Stok Baru</h2>
+      <form id="formTambah" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fKodeLokasi">Kode Lokasi</label>
+            <input type="text" id="fKodeLokasi" placeholder="mis. 0JKT01">
+            <span class="error-text"></span>
+          </div>
+          <div class="form-group">
+            <label for="fKodeBarang">Kode Barang</label>
+            <input type="text" id="fKodeBarang" placeholder="mis. ASIP4301">
+            <span class="error-text"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fNama">Nama Barang</label>
+          <input type="text" id="fNama" placeholder="Judul bahan ajar">
+          <span class="error-text"></span>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fJenis">Jenis Barang</label>
+            <select id="fJenis">
+              <option value="BMP">BMP</option>
+              <option value="NBMP">NBMP</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fEdisi">Edisi</label>
+            <input type="number" id="fEdisi" min="1" step="1" placeholder="1">
+            <span class="error-text"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fStok">Stok</label>
+          <input type="number" id="fStok" min="0" step="1" placeholder="0">
+          <span class="error-text"></span>
+        </div>
+        <button type="submit" class="btn btn-block">Simpan</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>&copy; 2026 Universitas Terbuka &middot; STSI4209 Tugas Praktik 1</footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/stok.js"></script>
+</body>
+</html>

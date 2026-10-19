@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | SITTA Universitas Terbuka</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand-mini" href="dashboard.html">SITTA UT</a>
+    <nav aria-label="Menu utama">
+      <ul>
+        <li><a href="dashboard.html" class="active">Beranda</a></li>
+        <li><a href="stok.html">Informasi Bahan Ajar</a></li>
+        <li><a href="tracking.html">Tracking Pengiriman</a></li>
+        <li class="dropdown">
+          <button type="button" class="drop-btn" aria-haspopup="true">Laporan &#9662;</button>
+          <ul class="dropdown-menu">
+            <li><a href="dashboard.html?laporan=monitoring">Monitoring Progress DO Bahan Ajar</a></li>
+            <li><a href="dashboard.html?laporan=rekap">Rekap Bahan Ajar</a></li>
+          </ul>
+        </li>
+        <li><a href="dashboard.html?laporan=histori">Histori Transaksi</a></li>
+      </ul>
+    </nav>
+    <div class="user-box">
+      <span id="userName"></span>
+      <button type="button" class="btn btn-accent" id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="greeting">
+      <div>
+        <h1 id="greeting">Selamat datang</h1>
+        <p id="userInfo"></p>
+      </div>
+      <div class="clock" aria-live="off">
+        <span id="clockTime"></span>
+        <small id="clockDate"></small>
+      </div>
+    </section>
+
+    <h2 class="section-label">Menu Utama</h2>
+    <section class="menu-grid" aria-label="Navigasi menu">
+      <a class="menu-card" href="stok.html">
+        <div class="icon" aria-hidden="true">&#128218;</div>
+        <h3>Informasi Bahan Ajar</h3>
+        <p>Lihat dan kelola stok bahan ajar di setiap lokasi.</p>
+      </a>
+      <a class="menu-card" href="tracking.html">
+        <div class="icon" aria-hidden="true">&#128666;</div>
+        <h3>Tracking Pengiriman</h3>
+        <p>Lacak status pengiriman dengan nomor Delivery Order.</p>
+      </a>
+      <button type="button" class="menu-card" data-laporan="monitoring">
+        <div class="icon" aria-hidden="true">&#128202;</div>
+        <h3>Monitoring Progress DO</h3>
+        <p>Laporan perkembangan DO bahan ajar.</p>
+      </button>
+      <button type="button" class="menu-card" data-laporan="rekap">
+        <div class="icon" aria-hidden="true">&#128203;</div>
+        <h3>Rekap Bahan Ajar</h3>
+        <p>Ringkasan jumlah judul dan total stok.</p>
+      </button>
+      <button type="button" class="menu-card" data-laporan="histori">
+        <div class="icon" aria-hidden="true">&#128339;</div>
+        <h3>Histori Transaksi</h3>
+        <p>Riwayat transaksi bahan ajar.</p>
+      </button>
+    </section>
+  </main>
+
+  <!-- Modal laporan -->
+  <div class="modal" id="modalLaporan" role="dialog" aria-modal="true" aria-labelledby="laporanJudul">
+    <div class="modal-content wide">
+      <button type="button" class="modal-close" aria-label="Tutup">&times;</button>
+      <h2 id="laporanJudul"></h2>
+      <div id="laporanIsi" class="table-wrap"></div>
+    </div>
+  </div>
+
+  <footer>&copy; 2026 Universitas Terbuka &middot; STSI4209 Tugas Praktik 1</footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

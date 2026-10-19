@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tracking Pengiriman | SITTA Universitas Terbuka</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand-mini" href="dashboard.html">SITTA UT</a>
+    <nav aria-label="Menu utama">
+      <ul>
+        <li><a href="dashboard.html">Beranda</a></li>
+        <li><a href="stok.html">Informasi Bahan Ajar</a></li>
+        <li><a href="tracking.html" class="active">Tracking Pengiriman</a></li>
+        <li class="dropdown">
+          <button type="button" class="drop-btn" aria-haspopup="true">Laporan &#9662;</button>
+          <ul class="dropdown-menu">
+            <li><a href="dashboard.html?laporan=monitoring">Monitoring Progress DO Bahan Ajar</a></li>
+            <li><a href="dashboard.html?laporan=rekap">Rekap Bahan Ajar</a></li>
+          </ul>
+        </li>
+        <li><a href="dashboard.html?laporan=histori">Histori Transaksi</a></li>
+      </ul>
+    </nav>
+    <div class="user-box">
+      <span id="userName"></span>
+      <button type="button" class="btn btn-accent" id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="page-title">Tracking Pengiriman</h1>
+    <p class="page-sub">Masukkan nomor Delivery Order (DO) untuk melihat status pengiriman bahan ajar.</p>
+
+    <section class="card" aria-label="Pencarian nomor DO">
+      <form id="trackingForm" novalidate>
+        <label for="nomorDO">Nomor Delivery Order</label>
+        <div class="search-row">
+          <input type="text" id="nomorDO" inputmode="numeric" placeholder="contoh: 2023001234">
+          <button type="submit" class="btn">Cari</button>
+        </div>
+        <span class="error-text" id="doError"></span>
+      </form>
+    </section>
+
+    <section class="card" id="hasil" hidden aria-live="polite">
+      <div class="result-head">
+        <div>
+          <h2 id="hNama"></h2>
+          <p class="page-sub">No. DO <strong id="hDO"></strong></p>
+        </div>
+        <span class="badge" id="hStatus"></span>
+      </div>
+
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="steps" id="steps"></div>
+
+      <div class="detail-grid">
+        <div class="detail-item"><span>Ekspedisi</span><strong id="dEkspedisi"></strong></div>
+        <div class="detail-item"><span>Tanggal Kirim</span><strong id="dTanggal"></strong></div>
+        <div class="detail-item"><span>Jenis Paket</span><strong id="dPaket"></strong></div>
+        <div class="detail-item"><span>Total Pembayaran</span><strong id="dTotal"></strong></div>
+      </div>
+
+      <h3>Riwayat Perjalanan</h3>
+      <ol class="timeline" id="timeline"></ol>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 Universitas Terbuka &middot; STSI4209 Tugas Praktik 1</footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/tracking.js"></script>
+</body>
+</html>
